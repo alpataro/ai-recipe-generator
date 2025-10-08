@@ -5,20 +5,16 @@ const schema = a.schema({
 		body: a.string(),
 		error: a.string(),
 	}),
+
 	askBedrock: a
 		.query()
 		.arguments({ ingredients: a.string().array() })
 		.returns(a.ref("BedrockResponse"))
 		.authorization((allow) => [allow.authenticated()])
-		.handler(
-			a.handler.custom({
-				entry: "./bedrock.js",
-				dataSource: "bedrockDS",
-			})
-		),
+		.handler(a.handler.custom({ entry: "./bedrock.js", dataSource: "bedrockDS" })),
 });
 
-export type Schema = ClientSchema<typeof schema>;
+export type Schema = ClientSchema;
 
 export const data = defineData({
 	schema,
