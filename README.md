@@ -8,6 +8,8 @@ As you go through the tutorial, you will learn about the services in detail and 
 
 ![Application Architecture](./src/assets/serverless-genai-architecture-diagram.png)
 
+Running version : **[ai-recipe-generator.asprocs.com](https://ai-recipe-generator.asprocs.com)**
+
 # React + TypeScript + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
