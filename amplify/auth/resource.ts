@@ -1,5 +1,5 @@
 import { defineAuth } from "@aws-amplify/backend";
-export const auth = defineAuth({
+export const authORG = defineAuth({
 	loginWith: {
 		email: {
 			verificationEmailStyle: "CODE",
@@ -9,7 +9,7 @@ export const auth = defineAuth({
 	},
 });
 
-export const auth2 = defineAuth({
+export const auth = defineAuth({
 	loginWith: {
 		email: true,
 	},
