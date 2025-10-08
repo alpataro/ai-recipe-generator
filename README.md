@@ -6,7 +6,7 @@ The following diagram provides a visual representation of the services used in t
 
 As you go through the tutorial, you will learn about the services in detail and find resources that will help you get up to speed with them.
 
-![Application Architecture](assets/serverless-genai-architecture-diagram.png)
+![Application Architecture](./src/assets/serverless-genai-architecture-diagram.png)
 
 # React + TypeScript + Vite
 
