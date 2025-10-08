@@ -1,19 +1,25 @@
 import { useState } from "react";
 import type { FormEvent } from "react";
-import { Loader, Placeholder } from "@aws-amplify/ui-react";
+import { Loader, Placeholder, withAuthenticator } from "@aws-amplify/ui-react";
 import "./App.css";
 import { Amplify } from "aws-amplify";
 import type { Schema } from "../amplify/data/resource";
 import { generateClient } from "aws-amplify/data";
 import outputs from "../amplify_outputs.json";
 import "@aws-amplify/ui-react/styles.css";
+
 Amplify.configure(outputs);
+
 const amplifyClient = generateClient<Schema>({
 	authMode: "userPool",
 });
-function App() {
+
+import type { WithAuthenticatorProps } from "@aws-amplify/ui-react";
+
+function App({ signOut, user }: WithAuthenticatorProps) {
 	const [result, setResult] = useState<string>("");
 	const [loading, setLoading] = useState(false);
+
 	const onSubmit = async (event: FormEvent<HTMLFormElement>) => {
 		event.preventDefault();
 		setLoading(true);
@@ -33,6 +39,7 @@ function App() {
 			setLoading(false);
 		}
 	};
+
 	return (
 		<div className="app-container">
 			<div className="header-container">
@@ -41,8 +48,9 @@ function App() {
 					<br />
 					<span className="highlight">Recipe AI</span>
 				</h1>
-				<p className="description">Simply type a few ingredients using the format ingredient1, ingredient2, etc., and Recipe AI will generate an all-new recipe on demand...</p>
+				<p className="description">Simply type a few ingredients and Recipe AI will generate a brand new recipe...</p>
 			</div>
+
 			<form
 				onSubmit={onSubmit}
 				className="form-container">
@@ -61,18 +69,25 @@ function App() {
 					</button>
 				</div>
 			</form>
+
 			<div className="result-container">
 				{loading ?
 					<div className="loader-container">
 						<p>Loading...</p>
 						<Loader size="large" />
 						<Placeholder size="large" />
-						<Placeholder size="large" />
-						<Placeholder size="large" />
 					</div>
 				:	result && <p className="result">{result}</p>}
+			</div>
+
+			<div style={{ marginTop: "2rem" }}>
+				<p>Signed in as: {user?.signInDetails?.loginId || user?.username}</p>
+				<button onClick={signOut}>Sign Out</button>
 			</div>
 		</div>
 	);
 }
-export default App;
+
+const AppWithAuthenticator = withAuthenticator(App);
+
+export default AppWithAuthenticator;
