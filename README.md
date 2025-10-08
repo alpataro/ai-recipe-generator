@@ -4,7 +4,7 @@ Meet Your Personal Recipe AI Simply type a few ingredients and Recipe AI will ge
 
 Running version : **[ai-recipe-generator.asprocs.com](https://ai-recipe-generator.asprocs.com)**
 
-## Application Architecture
+# Application Architecture
 
 The following diagram provides a visual representation of the services used in this tutorial and how they are connected. This application uses AWS Amplify, a GraphQL API built with AWS AppSync, AWS Lambda, and Amazon Bedrock.
 
