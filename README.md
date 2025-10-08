@@ -1,14 +1,16 @@
-Build a Serverless Web Application using Generative AI
+# Build a Serverless Web Application using Generative AI
 
-# Application Architecture
+Meet Your Personal Recipe AI Simply type a few ingredients and Recipe AI will generate a brand new recipe...
+
+Running version : **[ai-recipe-generator.asprocs.com](https://ai-recipe-generator.asprocs.com)**
+
+## Application Architecture
 
 The following diagram provides a visual representation of the services used in this tutorial and how they are connected. This application uses AWS Amplify, a GraphQL API built with AWS AppSync, AWS Lambda, and Amazon Bedrock.
 
 As you go through the tutorial, you will learn about the services in detail and find resources that will help you get up to speed with them.
 
 ![Application Architecture](./src/assets/serverless-genai-architecture-diagram.png)
-
-Running version : **[ai-recipe-generator.asprocs.com](https://ai-recipe-generator.asprocs.com)**
 
 # React + TypeScript + Vite
 
